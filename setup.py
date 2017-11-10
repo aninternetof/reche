@@ -1,9 +1,9 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='reche',
     version='0.1',
-    packages=[''],
+    py_modules=['app'],
     url='https://github.com/aninternetof/reche',
     license='MIT',
     author='Brady Hurlburt',
@@ -11,5 +11,11 @@ setup(
     description='Set your MacOS desktop to a Tumblr feed',
     install_requires=[
         'beautifulsoup4',
+        'click',
+        'requests',
     ],
+    entry_points='''
+    [console_scripts]
+    reche=app:cli
+    ''',
 )
