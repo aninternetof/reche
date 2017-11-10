@@ -8,7 +8,7 @@ Automatically set your MacOs background to track a Tumblr feed.
 
 ```bash
 $ python3 setup.py install
-$ reche http://a-la-recherche.tumblr.com/
+$ reche --url http://a-la-recherche.tumblr.com/
 ```
 
 # Running Periodically
