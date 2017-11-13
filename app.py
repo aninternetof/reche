@@ -13,10 +13,12 @@ def get_first_image(url, img_dst):
     return img_url
 
 
-def overlay(foreground_loc, background_loc, dest):
+def overlay(foreground_loc, background_url, dest):
+    BACKGROUND_LOC = '/tmp/background.jpg'
     fore = Image.open(foreground_loc, 'r')
     fore_w, fore_h = fore.size
-    back = Image.open(background_loc, 'r')
+    urllib.request.urlretrieve(background_url, BACKGROUND_LOC)
+    back = Image.open(BACKGROUND_LOC, 'r')
     back_w, back_h = back.size
     offset = (int((back_w - fore_w) / 2), int((back_h - fore_h) / 2))
     back.paste(fore, offset)
@@ -31,17 +33,16 @@ def set_background(img_loc):
 @click.command()
 @click.option('--url', default='http://a-la-recherche.tumblr.com/',
               help='The url of the Tumblr feed to follow')
-@click.option('--back_url', default='http://static.pexels.com/photos/168438/pexels-photo-168438.jpeg',
+@click.option('--back_url', default='http://i.imgur.com/DJNRT01.jpg',
               help='The url of the background image')
 def cli(url, back_url):
     TUMBLR_IMG_DST = '/tmp/tumblr_img.jpg'
     FINAL_IMG_DST = '/tmp/final_img.jpg'
-    BACKGROUND_LOC = 'img/background.jpg'
 
     if not url:
         click.echo('Please provide a Tumblr feed url with the --url option')
     img_url = get_first_image(url, TUMBLR_IMG_DST)
-    overlay(TUMBLR_IMG_DST, BACKGROUND_LOC, FINAL_IMG_DST)
+    overlay(TUMBLR_IMG_DST, back_url, FINAL_IMG_DST)
     set_background(FINAL_IMG_DST)
-    click.echo('Background set to {}'.format(img_url))
+    click.echo('Desktop set to {}'.format(img_url))
 
