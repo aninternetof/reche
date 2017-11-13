@@ -1,6 +1,6 @@
 # Description
 
-Automatically set your MacOs background to track a Tumblr feed.
+Automatically set your MacOS background to track a Tumblr feed.
 
 # Installation and Usage
 
