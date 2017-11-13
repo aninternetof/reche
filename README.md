@@ -18,3 +18,7 @@ $ nano com.aninternetof.reche.plist # change the Tumblr URLto what you want, and
 $ cp com.aninternetof.reche.plist ~/Library/LaunchAgents
 $ sudo launchctl load ~/Library/LaunchAgents/com.aninternetof.reche.plist
 ```
+
+# Credit
+
+Default background image credit [freestocktextures.com](https://freestocktextures.com/texture/cement-rough-parget,807.html).

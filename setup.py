@@ -13,6 +13,7 @@ setup(
         'beautifulsoup4',
         'click',
         'requests',
+        'pillow'
     ],
     entry_points='''
     [console_scripts]
