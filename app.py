@@ -33,7 +33,7 @@ def set_background(img_loc):
 @click.command()
 @click.option('--url', default='http://a-la-recherche.tumblr.com/',
               help='The url of the Tumblr feed to follow')
-@click.option('--back_url', default='http://i.imgur.com/DJNRT01.jpg',
+@click.option('--back_url', default='http://i.imgur.com/AoInTCS.jpg',
               help='The url of the background image')
 def cli(url, back_url):
     TUMBLR_IMG_DST = '/tmp/tumblr_img.jpg'
